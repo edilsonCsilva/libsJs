@@ -26,7 +26,7 @@ ColisorGoogleMaps.prototype.pointOnVertexS = function (point, vertices) {
 
 ColisorGoogleMaps.prototype.pointStringToCoordinates = function (pointString) {
     var coordinates = pointString.split(this.separator)
-    return { x: coordinates[0], y: coordinates[1] }
+    return { x: parseFloat(coordinates[0]), y: parseFloat(coordinates[1]) }
 };
 
 
@@ -37,6 +37,8 @@ ColisorGoogleMaps.prototype.pointInPolygon = function (point, polygon, pointOnVe
     var vertices = [];
     var rowsVertices = polygon.length
     for (next = 0; next < rowsVertices; next++) {
+        polygon[next].x=parseFloat(polygon[next].x)
+        polygon[next].y=parseFloat(polygon[next].y)
         vertices.push(this.pointStringToCoordinates(polygon[next]))
     }
 
