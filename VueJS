@@ -1,0 +1,14 @@
+//Adicionar caminho no App VUEJS build
+
+///////////////////////////////////////////////////////////////////
+vue.config //Criar na Raiz da Aplicação do App Vuejs
+
+///////////////////////////////////////////////////////////////////
+
+
+module.exports = {
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/production-sub-path/'
+    : '/'
+}
+
